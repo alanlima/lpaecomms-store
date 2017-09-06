@@ -1,0 +1,20 @@
+{
+  "name": "lpaecomms-store",
+  "version": "1.0.0",
+  "description": "LPA eComms - Store --- Welcome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanlima/lpaecomms-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanlima/lpaecomms-store/issues"
+  },
+  "homepage": "https://github.com/alanlima/lpaecomms-store#readme"
+}
