@@ -38,7 +38,7 @@ class Product extends Component {
                         <ins>$ {price}</ins>
                     </div>
                     <div className='product-option-shop'>
-                        <a className='add_to_cart_button' href='#'>Add to cart</a>
+                        <a className='add_to_cart_button' href='#' onClick={this.props.addToCart} >Add to cart</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,8 @@ Product.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    addToCart: PropTypes.func.isRequired
 }
 
 class CatalogPage extends Component {
@@ -72,8 +73,8 @@ class CatalogPage extends Component {
                                     name={item.name}
                                     price={item.price}
                                     id={item.id}
+                                    addToCart={() => this.props.addToCart(item)}
                                 />)}
-
                         
                         </div>
                         <div className="row">
