@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const MenuItem = props => {
     return (
         <li>
-            <a href={props.url}>
+            <Link to={props.url}>
                 {props.text}
-            </a>
+            </Link>
         </li>
     )
 }
@@ -15,9 +16,9 @@ const Menu = props => {
 
     const items = [
         { text: 'HOME', url: '#' },
-        { text: 'SHOP PAGE', url: '#' },
+        { text: 'SHOP PAGE', url: '/' },
         { text: 'SINGLE PRODUCT', url: '#' },
-        { text: 'CART', url: '#' },
+        { text: 'CART', url: '/cart' },
     ]
 
     return (

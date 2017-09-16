@@ -14,7 +14,8 @@ const CartItem = (props) => {
                     <input type="number" 
                            size="4" 
                            className="input-text qty text" 
-                           title="Qty" min="0" sep="0"
+                           title="Qty" min="0" step="0"
+                           readOnly
                            value={props.item.quantity} />
                     <input type="button" className="plus" value="+" />
                 </div>
@@ -28,16 +29,16 @@ const CartTable = (props) => {
     return (
         <table cellSpacing="0" className="shop_table cart">
             <thead>
-                <th>&nbsp;</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
             </thead>
             <tbody>
-                <tr>
-                    {props.items.map(item => <CartItem item={item} />)}
-                </tr>
+                {props.items.map(item => <CartItem key={item.productId} item={item} />)}
             </tbody>
         </table>
     )

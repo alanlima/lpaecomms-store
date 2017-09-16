@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(getCatalog())
         },
         addToCart: (product) => {
-            dispatch(addToCart(product))
+            dispatch(addToCart(product, 1))
         }
     }
 }

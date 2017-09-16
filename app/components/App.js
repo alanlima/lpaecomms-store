@@ -1,37 +1,44 @@
 import React, { Component } from 'react'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
+
 import StoreApp from 'components/StoreApp'
 import NavBar from 'components/NavBar'
-// import CartButton from 'components/CartButton'
 import Menu from 'components/Menu'
-// import CatalogPage from 'components/CatalogPage'
 import CatalogContainer from 'containers/CatalogContainer'
 import CartBtnContainer from 'containers/CartBtnContainer'
+import CartPageContainer from 'containers/CartPageContainer'
 
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <NavBar title="LPA - eComms" />
+            <Router>
+                <div>
+                    <NavBar title="LPA - eComms" />
 
-                <div className="site-branding-area">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-6">
-                                LPA - eComms
-                            </div>
-                            <div className="col-sm-6">
-                                <CartBtnContainer />
+                    <div className="site-branding-area">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    LPA - eComms
+                                </div>
+                                <div className="col-sm-6">
+                                    <CartBtnContainer />
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <Menu />
+
+                    <Route exact path="/" component={CatalogContainer} />
+                    <Route exact path="/cart" component={CartPageContainer} />
                 </div>
-
-                <Menu />
-
-                <CatalogContainer />
-
-            </div>
+            </Router>
         )
     }
 }
