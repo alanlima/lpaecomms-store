@@ -15,12 +15,14 @@ class App extends Component {
                 <NavBar title="LPA - eComms" />
 
                 <div className="site-branding-area">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            LPA - eComms
-                        </div>
-                        <div className="col-sm-6">
-                            <CartBtnContainer />
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-6">
+                                LPA - eComms
+                            </div>
+                            <div className="col-sm-6">
+                                <CartBtnContainer />
+                            </div>
                         </div>
                     </div>
                 </div>
