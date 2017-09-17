@@ -7,7 +7,8 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        items: state.Cart.items
+        items: state.Cart.items,
+        totalPrice: state.Cart.summary.totalPrice
     }
 }
 

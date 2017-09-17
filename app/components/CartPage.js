@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PageTitle from 'components/PageTitle'
+import { Link } from 'react-router-dom'
 
 const CartItem = (props) => {
     const { item } = props;
@@ -36,18 +37,6 @@ CartItem.propTypes = {
     updateQuantity: PropTypes.func.isRequired
 }
 
-// const CartTableTotal = (props) => {
-//     return (
-        
-//     )
-// }
-
-// const CartTableActions = (props) => {
-//     return (
-
-//     )
-// }
-
 const CartTable = (props) => {
     return (
         <table cellSpacing="0" className="shop_table cart">
@@ -67,6 +56,15 @@ const CartTable = (props) => {
                                             updateQuantity={props.onUpdateQuantity}
                                             removeProduct={props.onRemoveProduct} />)}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td className="actions" colSpan="5">
+                        <div style={{textAlign: 'right'}}>
+                            {props.totalPrice}
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     )
 }
@@ -74,12 +72,14 @@ const CartTable = (props) => {
 CartTable.propTypes = {
     items: PropTypes.array.isRequired,
     onRemoveProduct: PropTypes.func.isRequired,
-    onUpdateQuantity: PropTypes.func.isRequired
+    onUpdateQuantity: PropTypes.func.isRequired,
+    totalPrice: PropTypes.number.isRequired
 }
 
 class CartPage extends Component
 {
     render() {
+        const { items, updateQuantity, removeProduct, totalPrice} = this.props;
         return (
             <div>
                 <PageTitle title='Cart' />
@@ -87,11 +87,15 @@ class CartPage extends Component
                     <div className="container">
                         <div className="row">
                             <CartTable 
-                                items={this.props.items}
-                                onUpdateQuantity={this.props.updateQuantity}
-                                onRemoveProduct={this.props.removeProduct} />
+                                items={items}
+                                onUpdateQuantity={updateQuantity}
+                                onRemoveProduct={removeProduct}
+                                totalPrice={totalPrice} />
                         </div>
-                        <div className="row">
+                        <div className="row pull-right">
+                            <Link to="/checkout" className="btn btn-primary">
+                                Checkout
+                            </Link>
                         </div>
                     </div>
                 </div>
