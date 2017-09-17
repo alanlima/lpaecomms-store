@@ -19,7 +19,7 @@ class Product extends Component {
                         <ins>$ {price}</ins>
                     </div>
                     <div className='product-option-shop'>
-                        <a className='add_to_cart_button' href='#' onClick={this.props.addToCart} >Add to cart</a>
+                        <button className='add_to_cart_button' onClick={this.props.addToCart} >Add to cart</button>
                     </div>
                 </div>
             </div>
