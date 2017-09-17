@@ -13,14 +13,19 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
+import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
+import { Router } from 'react-router'
 
 import App from 'components/App'
 import MainReducer from 'reducers/index';
 
 import { persistStore, autoRehydrate } from 'redux-persist'
 
+var history = createHistory();
+
 const setupStore = () => {
-    const middlewares = [ thunk ];
+    const middlewares = [ thunk, routerMiddleware(history) ];
 
     const logger = require('redux-logger');
     middlewares.push(logger.createLogger());
@@ -37,13 +42,17 @@ const setupStore = () => {
 
 const store = setupStore();
 
+syncHistoryWithStore(history, store);
+
+// history.listen(loc => console.log('history', loc))
+
 persistStore(store, {
-    blacklist: [ 'Catalog', 'Cart' ]
+    blacklist: [ 'Catalog', 'Cart', 'routing' ]
 });
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App history={history} />
     </Provider>,
     document.getElementById('app')
 )

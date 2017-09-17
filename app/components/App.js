@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
-    BrowserRouter as Router,
+    // BrowserRouter as Router,
+    Router,
     Route,
     Link
 } from 'react-router-dom'
@@ -13,33 +14,31 @@ import CartBtnContainer from 'containers/CartBtnContainer'
 import CartPageContainer from 'containers/CartPageContainer'
 import NewCustomerContainer from 'containers/NewCustomerContainer'
 
-
 class App extends Component {
     render() {
         return (
-            <Router>
-                <div>
-                    <NavBar title="LPA - eComms" />
+            <Router history={this.props.history}>
+            <div>
+                <NavBar title="LPA - eComms" />
 
-                    <div className="site-branding-area">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    LPA - eComms
-                                </div>
-                                <div className="col-sm-6">
-                                    <CartBtnContainer />
-                                </div>
+                <div className="site-branding-area">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-6">
+                                LPA - eComms
+                            </div>
+                            <div className="col-sm-6">
+                                <CartBtnContainer />
                             </div>
                         </div>
                     </div>
-
-                    <Menu />
-
-                    <Route exact path="/" component={CatalogContainer} />
-                    <Route exact path="/cart" component={CartPageContainer} />
-                    <Route path="/customer/new" component={NewCustomerContainer} />
                 </div>
+
+                <Menu />
+                <Route exact path="/" component={CatalogContainer} />
+                <Route exact path="/cart" component={CartPageContainer} />
+                <Route path="/customer/new" component={NewCustomerContainer} />
+            </div>
             </Router>
         )
     }
