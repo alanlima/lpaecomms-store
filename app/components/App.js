@@ -11,7 +11,7 @@ import Menu from 'components/Menu'
 import CatalogContainer from 'containers/CatalogContainer'
 import CartBtnContainer from 'containers/CartBtnContainer'
 import CartPageContainer from 'containers/CartPageContainer'
-import NewCustomerPage from 'components/NewCustomerPage'
+import NewCustomerContainer from 'containers/NewCustomerContainer'
 
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
 
                     <Route exact path="/" component={CatalogContainer} />
                     <Route exact path="/cart" component={CartPageContainer} />
-                    <Route path="/customer/new" component={NewCustomerPage} />
+                    <Route path="/customer/new" component={NewCustomerContainer} />
                 </div>
             </Router>
         )

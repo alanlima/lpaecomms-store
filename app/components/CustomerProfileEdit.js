@@ -6,8 +6,17 @@ class CustomerProfileEdit extends Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            firstName: 'Alan',
+            lastName: 'Lima',
+            address: 'Queen Street',
+            phone: '33333',
+            login: 'alima'
+        }
+
         this.handleChange = this.handleChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleRegisterCustomer = this.handleRegisterCustomer.bind(this);
     }
 
     handleChange(name, value) {
@@ -22,14 +31,19 @@ class CustomerProfileEdit extends Component {
         })
     }
 
-    render(){
+    handleRegisterCustomer() {
         const customer = {
-            firstName: 'Alan',
-            lastName: 'Lima',
-            address: 'Queen Street',
-            phone: '33333',
-            login: 'alima'
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            address: this.state.address,
+            phone: this.state.phone,
+            login: this.state.login,
+            password: this.state.password
         }
+        this.props.registerCustomer(customer);
+    }
+
+    render(){
         
         return (
             <div>
@@ -37,39 +51,45 @@ class CustomerProfileEdit extends Component {
                     label="First Name"
                     name="firstName"
                     placeholder="Your first name"
-                    value={customer.firstName}
+                    value={this.state.firstName}
                     onChange={this.handleChange} />
 
                 <InputTextBox 
                     label="Last Name"
                     name="lastName"
                     placeholder="Your last name"
-                    value={customer.lastName}
+                    value={this.state.lastName}
                     onChange={this.handleChange} />
 
                 <InputTextBox 
                     label="Address"
                     name="Address"
                     placeholder="Your full address"
-                    value={customer.address}
+                    value={this.state.address}
                     onChange={this.handleChange} />
 
                 <InputTextBox 
                     label="Phone Number"
                     name="phone"
                     placeholder="Your phone number"
-                    value={customer.phone}
+                    value={this.state.phone}
                     onChange={this.handleChange} />
                 
                 <InputTextBox 
                     label="User Name"
                     name="login"
                     placeholder="Your user name"
-                    value={customer.login}
+                    value={this.state.login}
                     onChange={this.handleChange} />
 
                 <PasswordField 
                     onPasswordChange={this.handlePasswordChange} />
+
+                <div className="row pull-right">
+                    <button className="btn btn-primary" onClick={this.handleRegisterCustomer}>
+                        Register
+                    </button>
+                </div>
             </div>
         )
     }
