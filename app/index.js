@@ -11,11 +11,13 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import App from 'components/App'
 import MainReducer from 'reducers/index';
+
+import { persistStore, autoRehydrate } from 'redux-persist'
 
 const setupStore = () => {
     const middlewares = [ thunk ];
@@ -26,11 +28,18 @@ const setupStore = () => {
     return createStore(
         MainReducer,
         {},
-        applyMiddleware(...middlewares)
+        compose(
+            applyMiddleware(...middlewares),
+            autoRehydrate()
+        )
     )
 }
 
 const store = setupStore();
+
+persistStore(store, {
+    blacklist: [ 'Catalog', 'Cart' ]
+});
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
 import CatalogPage from '../components/CatalogPage'
-import { getCatalog, addToCart } from 'actions'
+import { getCatalog } from 'actions'
+import { 
+    addToCartAndUpdateSummary as addToCart 
+} from 'actions/cart-actions'
 
 const mapStateToProps = (state, ownProps) => {
     return {

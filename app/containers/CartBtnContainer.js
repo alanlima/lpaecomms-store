@@ -3,8 +3,8 @@ import CartButton from 'components/CartButton'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        productCount: state.Cart.items.length,
-        amount: state.Cart.totalPrice
+        productCount: state.Cart.summary.itemsCount,
+        amount: state.Cart.summary.totalPrice
     }
 }
 

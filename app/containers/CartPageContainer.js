@@ -1,5 +1,9 @@
 import { connect } from 'react-redux'
 import CartPage from 'components/CartPage'
+import {
+    removeProductAndUpdateSummary as removeProduct,
+    updateQuantityAndSummary as updateQuantity
+} from 'actions/cart-actions'
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -9,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-
+        removeProduct: (productId) => dispatch(removeProduct(productId)),
+        updateQuantity: (productId, quantity) => dispatch(updateQuantity(productId, quantity))
     }
 }
 
