@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { registerCustomer } from 'actions/customer-actions'
+import { registerCustomerAndGoToHome as registerCustomer } from 'actions/customer-actions'
 import CustomerProfileEdit from 'components/CustomerProfileEdit'
 
 const mapStateToProps = (state, ownProps) => {
