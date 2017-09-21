@@ -9,6 +9,8 @@ class CustomerProfileEdit extends Component {
 
         this.state = Object.assign({}, props.customer);
 
+        console.log(this.state);
+
         this.handleChange = this.handleChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleSaveCustomer = this.handleSaveCustomer.bind(this);

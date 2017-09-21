@@ -1,20 +1,19 @@
 import { connect } from 'react-redux'
 import { registerCustomerAndGoToHome as registerCustomer } from 'actions/customer-actions'
-import CustomerProfileEdit from 'components/CustomerProfileEdit'
+import CustomerFormPage from 'components/CustomerFormPage'
 
-const defaultCustomer = {
+const emptyCustomer = {
     firstName: '',
     lastName: '',
     address: '',
     phone: '',
-    password: '',
     login: ''
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        customer: state.customer || defaultCustomer,
-        isEditMode: false
+        customer: state.Customer.isEditMode ? state.Customer.loggedCustomerProfile : emptyCustomer,
+        isEditMode: state.Customer.isEditMode
     }
 }
 
@@ -22,13 +21,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         save: (newCustomer) => {
             dispatch(registerCustomer(newCustomer));
+        },
+        loadCustomerDataToEdit: () => {
+            
         }
     }
 }
 
-const NewCustomerContainer = connect(
+const CustomerFormContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(CustomerProfileEdit)
+)(CustomerFormPage)
 
-module.exports = NewCustomerContainer
+module.exports = CustomerFormContainer

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import PageTitle from 'components/PageTitle'
+import PageContent from 'components/PageContent'
 import { Link } from 'react-router-dom'
 
 const CartItem = (props) => {
@@ -81,25 +81,22 @@ class CartPage extends Component
     render() {
         const { items, updateQuantity, removeProduct, totalPrice} = this.props;
         return (
-            <div>
-                <PageTitle title='Cart' />
-                <div style={{padding: "80px 0 130px"}}> 
-                    <div className="container">
-                        <div className="row">
-                            <CartTable 
-                                items={items}
-                                onUpdateQuantity={updateQuantity}
-                                onRemoveProduct={removeProduct}
-                                totalPrice={totalPrice} />
-                        </div>
-                        <div className="row pull-right">
-                            <Link to="/checkout" className="btn btn-primary">
-                                Checkout
-                            </Link>
-                        </div>
+            <PageContent title="Cart">
+                <div className="container">
+                    <div className="row">
+                        <CartTable 
+                            items={items}
+                            onUpdateQuantity={updateQuantity}
+                            onRemoveProduct={removeProduct}
+                            totalPrice={totalPrice} />
+                    </div>
+                    <div className="row pull-right">
+                        <Link to="/checkout" className="btn btn-primary">
+                            Checkout
+                        </Link>
                     </div>
                 </div>
-            </div>
+            </PageContent>
         )
     }
 }

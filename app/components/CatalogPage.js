@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import PageTitle from 'components/PageTitle'
+import PageContent from 'components/PageContent'
 
 class Product extends Component {
     render() {
@@ -43,26 +43,21 @@ class CatalogPage extends Component {
 
     render() {
         return (
-            <div>
-                <PageTitle title='Shop' />
-                <div style={{padding: "80px 0 130px"}}> 
-                    <div className="container">
-                        <div className="row">
-                            {this.props.catalog.map(item => <Product
-                                    key={item.id}
-                                    imageUrl={item.image}
-                                    name={item.name}
-                                    price={item.price}
-                                    id={item.id}
-                                    addToCart={() => this.props.addToCart(item)}
-                                />)}
-                        
-                        </div>
-                        <div className="row">
-                        </div>
-                    </div>
+            <PageContent title="Shop">
+                <div className="row">
+                    {this.props.catalog.map(item => <Product
+                            key={item.id}
+                            imageUrl={item.image}
+                            name={item.name}
+                            price={item.price}
+                            id={item.id}
+                            addToCart={() => this.props.addToCart(item)}
+                        />)}
+                
                 </div>
-            </div>
+                <div className="row">
+                </div>
+            </PageContent>
         )
     }
 }
