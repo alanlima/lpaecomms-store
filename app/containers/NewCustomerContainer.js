@@ -2,15 +2,25 @@ import { connect } from 'react-redux'
 import { registerCustomerAndGoToHome as registerCustomer } from 'actions/customer-actions'
 import CustomerProfileEdit from 'components/CustomerProfileEdit'
 
+const defaultCustomer = {
+    firstName: '',
+    lastName: '',
+    address: '',
+    phone: '',
+    password: '',
+    login: ''
+}
+
 const mapStateToProps = (state, ownProps) => {
     return {
-
+        customer: state.customer || defaultCustomer,
+        isEditMode: false
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        registerCustomer: (newCustomer) => {
+        save: (newCustomer) => {
             dispatch(registerCustomer(newCustomer));
         }
     }

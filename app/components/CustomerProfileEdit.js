@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
 import { InputTextBox, PasswordField } from 'components/BootstrapForms'
+import { Link } from 'react-router-dom'
 
 class CustomerProfileEdit extends Component {
 
     constructor(props){
         super(props);
 
-        this.state = {
-            firstName: 'Alan',
-            lastName: 'Lima',
-            address: 'Queen Street',
-            phone: '33333',
-            login: 'alima'
-        }
+        this.state = Object.assign({}, props.customer);
 
         this.handleChange = this.handleChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleRegisterCustomer = this.handleRegisterCustomer.bind(this);
+        this.handleSaveCustomer = this.handleSaveCustomer.bind(this);
     }
 
     handleChange(name, value) {
@@ -31,19 +26,19 @@ class CustomerProfileEdit extends Component {
         })
     }
 
-    handleRegisterCustomer() {
+    handleSaveCustomer() {
         const customer = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             address: this.state.address,
             phone: this.state.phone,
-            login: this.state.login,
-            password: this.state.password
+            login: this.state.login
         }
-        this.props.registerCustomer(customer);
+        this.props.save(customer);
     }
 
     render(){
+        const { isEditMode } = this.props;
         
         return (
             <div>
@@ -82,13 +77,15 @@ class CustomerProfileEdit extends Component {
                     value={this.state.login}
                     onChange={this.handleChange} />
 
-                <PasswordField 
-                    onPasswordChange={this.handlePasswordChange} />
+                {!isEditMode && <PasswordField onPasswordChange={this.handlePasswordChange} />}
 
                 <div className="row pull-right">
-                    <button className="btn btn-primary" onClick={this.handleRegisterCustomer}>
-                        Register
+                    <button className="btn btn-primary" onClick={this.handleSaveCustomer}>
+                        Save
                     </button>
+                    <Link className="btn btn-default" to="/">
+                        Cancel
+                    </Link>
                 </div>
             </div>
         )
