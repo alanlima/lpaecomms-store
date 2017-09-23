@@ -11,13 +11,16 @@ const defaultCustomer = {
 
 const defaultState = {
     loggedCustomerProfile: undefined,
-    isEditMode: false
+    isEditMode: false,
+    loggedCustomerId: 0
 }
 
 const CustomerReducer = (state = defaultState, action) => {
     switch(action.type) {
         case ActionTypes.LoadCustomer:
-            return Object.assign({}, state, { loggedCustomerProfile: action.customer });
+            return Object.assign({}, state, { loggedCustomerProfile: action.customer })
+        case ActionTypes.CustomerLogInSuccessfull:
+            return Object.assign({}, state, { loggedCustomerId: action.customerId })
         default:
             return state;
     }

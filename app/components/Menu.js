@@ -15,9 +15,9 @@ const MenuItem = props => {
 const Menu = props => {
 
     const items = [
-        { text: 'HOME', url: '#' },
+        // { text: 'HOME', url: '#' },
         { text: 'SHOP PAGE', url: '/' },
-        { text: 'SINGLE PRODUCT', url: '#' },
+        // { text: 'SINGLE PRODUCT', url: '#' },
         { text: 'CART', url: '/cart' },
     ]
 

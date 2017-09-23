@@ -7,18 +7,18 @@ class Product extends Component {
         const { imageUrl, name, price, id } = this.props;
 
         return (
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-3 col-sm-6" >
                 <div className="single-shop-product">
-                    <div className="product-upper">
+                    <div className="product-upper" style={{ height: "180px", width: "200px", display: "inline-block"}}>
                         <img src={imageUrl} alt={'image for ' + name} />
                     </div>
-                    <h2>
+                    <h2 style={{ height: "50px" }}>
                         <a href='#'>{name}</a>
                     </h2>
-                    <div className='product-carousel-price'>
+                    <div className='product-carousel-price' >
                         <ins>$ {price}</ins>
                     </div>
-                    <div className='product-option-shop'>
+                    <div className='product-option-shop' style={{ }}>
                         <button className='add_to_cart_button' onClick={this.props.addToCart} >Add to cart</button>
                     </div>
                 </div>

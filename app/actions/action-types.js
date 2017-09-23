@@ -4,5 +4,8 @@ module.exports = {
     UpdateProductQuantity: 'update-product-quantity',
     RemoveProductFromCart: 'remove-product-cart',
     UpdateCartSummary: 'update-cart-summary',
-    CustomerSavedSuccessfully: 'customer-saved-successfully'
+    CustomerSavedSuccessfully: 'customer-saved-successfully',
+    CustomerLogIn: 'customer-log-in',
+    CustomerLogInSuccessfull: 'customer-login-success',
+    CustomerLogInFail: 'customer-login-fail'
 }

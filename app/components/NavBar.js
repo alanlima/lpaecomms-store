@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const NavBarMenu = (props) => {
     return (
@@ -41,7 +42,7 @@ const NavBar = (props) => {
                     
                     <div className="col-md-4">
                         <div className="header-right">
-                            <a href='#'>Logout</a>
+                            <Link to='/login?returnUrl=/'>Login</Link>
                         </div>
                     </div>
                 </div>
