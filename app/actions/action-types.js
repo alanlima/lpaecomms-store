@@ -7,5 +7,6 @@ module.exports = {
     CustomerSavedSuccessfully: 'customer-saved-successfully',
     CustomerLogIn: 'customer-log-in',
     CustomerLogInSuccessfull: 'customer-login-success',
-    CustomerLogInFail: 'customer-login-fail'
+    CustomerLogInFail: 'customer-login-fail',
+    CustomerProfileLoaded: 'customer-profile-loaded'
 }

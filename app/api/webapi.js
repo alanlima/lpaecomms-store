@@ -25,5 +25,12 @@ module.exports = {
                     {login, password})
             .then(response => response.data)
             .catch(error => console.log('error on authenticate', error))
+    },
+    loadCustomerProfile: (id) => {
+        return Axios
+            .post(getFullPath('customer/info.php'),
+                    { id })
+            .then(response => response.data)
+            .catch(error => console.log('error on load customer profile', error))
     }
 }

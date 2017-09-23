@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import StoreApp from 'components/StoreApp'
-import NavBar from 'components/NavBar'
+import NavBarContainer from 'containers/NavBarContainer'
 import Menu from 'components/Menu'
 import CatalogContainer from 'containers/CatalogContainer'
 import CartBtnContainer from 'containers/CartBtnContainer'
@@ -20,7 +20,7 @@ class App extends Component {
         return (
             <Router history={this.props.history}>
             <div>
-                <NavBar title="LPA - eComms" />
+                <NavBarContainer title="LPA - eComms" />
 
                 <div className="site-branding-area">
                     <div className="container">

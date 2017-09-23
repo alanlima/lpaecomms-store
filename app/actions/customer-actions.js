@@ -24,12 +24,28 @@ const logIn = (login, password, returnUrl, nextAction = () => {}) => {
                             customerId: result.customerId
                         })
 
+                        dispatch(loadCustomerProfile(result.customerId));
+
                         dispatch(navigationActions.goTo(returnUrl));
+
                     } else {
                         dispatch({
                             type: ActionTypes.CustomerLogInFail,
                         })
                     }
+                })
+    }
+}
+
+const loadCustomerProfile = (id) => {
+    return dispatch => {
+        return webApi
+                .loadCustomerProfile(id)
+                .then(result => {
+                    dispatch({
+                        type: ActionTypes.CustomerProfileLoaded,
+                        customer: result
+                    })
                 })
     }
 }

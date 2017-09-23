@@ -8,10 +8,10 @@ const NavBarMenu = (props) => {
             <ul>
                 {props.items.map(item => 
                     <li key={item.title}>
-                        <a href={item.url}>
+                        <Link to={item.url}>
                             <i className={item.icon}></i>
                             {item.title}
-                        </a>
+                        </Link>
                     </li>)}
             </ul>
         </div>
@@ -26,12 +26,22 @@ NavBarMenu.propTypes = {
     }))
 }
 
+const LogoutContainer = (props) => {
+    return (
+        <div>
+            <span>Hi, {props.userName}</span>
+            <button onClick={props.doLogout}>Logout</button>
+        </div>
+    )
+}
+
 const NavBar = (props) => {
     const MenuItemsData = [
-        { url: '#', icon: 'fa fa-user', title: 'My Account' },
-        { url: '#', icon: 'fa fa-shopping-cart', title: 'My Cart' },
+        { url: '/customer/profile', icon: 'fa fa-user', title: 'My Account' },
+        { url: '/cart', icon: 'fa fa-shopping-cart', title: 'My Cart' },
         { url: '#', icon: 'fa fa-user', title: 'Checkoput' }
     ]
+    console.log('navbar', props);
     return (
         <nav className='header-area'>
             <div className="container">
@@ -42,7 +52,8 @@ const NavBar = (props) => {
                     
                     <div className="col-md-4">
                         <div className="header-right">
-                            <Link to='/login?returnUrl=/'>Login</Link>
+
+                            { props.userLogged ? <LogoutContainer {...props} /> : <Link to='/login?returnUrl=/'>Login</Link> }
                         </div>
                     </div>
                 </div>
