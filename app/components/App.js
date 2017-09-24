@@ -14,6 +14,7 @@ import CartBtnContainer from 'containers/CartBtnContainer'
 import CartPageContainer from 'containers/CartPageContainer'
 import CustomerContainer from 'containers/CustomerContainer'
 import LogInContainer from 'containers/LogInContainer'
+import CustomerProfileContainer from 'containers/CustomerProfileContainer'
 
 class App extends Component {
     render() {
@@ -40,6 +41,7 @@ class App extends Component {
                 <Route exact path="/cart" component={CartPageContainer} />
                 <Route path="/customer/new" component={CustomerContainer} />
                 <Route path="/customer/edit" component={CustomerContainer} />
+                <Route path="/customer/profile" component={CustomerProfileContainer} />
                 <Route path="/login" component={LogInContainer} />
             </div>
             </Router>
