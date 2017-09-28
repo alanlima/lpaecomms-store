@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const CartButton = (props) => {
     return (
         <div className="shopping-item">
-            <a href='#'>
+            <Link to="/cart">
                 Cart -&nbsp;
                 <span className="cart-amunt">
                     $ {props.amount}
@@ -13,7 +14,7 @@ const CartButton = (props) => {
                 <span className="product-count">
                     {props.productCount}
                 </span>
-            </a>
+            </Link>
         </div>
     )
 }
