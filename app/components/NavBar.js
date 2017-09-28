@@ -41,7 +41,6 @@ const NavBar = (props) => {
         { url: '/cart', icon: 'fa fa-shopping-cart', title: 'My Cart' },
         { url: '#', icon: 'fa fa-user', title: 'Checkoput' }
     ]
-    console.log('navbar', props);
     return (
         <nav className='header-area'>
             <div className="container">

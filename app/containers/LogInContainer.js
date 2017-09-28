@@ -4,17 +4,17 @@ import { logIn } from 'actions/customer-actions'
 import queryString from 'query-string'
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log(state, ownProps);
+
     return {
-        
+        isUserAuthenticated: state.Session.isUserAuthenticated
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         logIn: (login, password) => {
-            const returnUrl = queryString.parse(ownProps.location.search).returnUrl || '/';
-            dispatch(logIn(login, password, returnUrl))
+            const redirectTo = queryString.parse(ownProps.location.search).redirectTo || '/';
+            dispatch(logIn(login, password, redirectTo))
         }
     }
 }

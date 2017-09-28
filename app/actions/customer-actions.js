@@ -13,7 +13,7 @@ const registerCustomer = (newCustomer, nextAction = () => { }) => {
     }
 }
 
-const logIn = (login, password, returnUrl, nextAction = () => {}) => {
+const logIn = (login, password, redirectTo, nextAction = () => {}) => {
     return dispatch => {
         return webApi
                 .authenticate(login, password)
@@ -24,10 +24,8 @@ const logIn = (login, password, returnUrl, nextAction = () => {}) => {
                             customerId: result.customerId
                         })
 
-                        dispatch(loadCustomerProfile(result.customerId));
-
-                        dispatch(navigationActions.goTo(returnUrl));
-
+                        dispatch(loadCustomerProfile(result.customerId))
+                            .then(() => dispatch(navigationActions.goTo(redirectTo)))
                     } else {
                         dispatch({
                             type: ActionTypes.CustomerLogInFail,
@@ -50,6 +48,15 @@ const loadCustomerProfile = (id) => {
     }
 }
 
+const doLogout = () => {
+    return dispatch => {
+        dispatch({
+            type: ActionTypes.CustomerLogout
+        })
+        dispatch(navigationActions.goToHome());
+    }
+}
+
 module.exports = {
     registerCustomer,
     registerCustomerAndGoToHome: (newCustomer) => dispatch => {
@@ -57,5 +64,6 @@ module.exports = {
             () => dispatch(navigationActions.goToHome())
         )(dispatch);
     },
-    logIn
+    logIn,
+    doLogout
 }

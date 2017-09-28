@@ -8,5 +8,6 @@ module.exports = {
     CustomerLogIn: 'customer-log-in',
     CustomerLogInSuccessfull: 'customer-login-success',
     CustomerLogInFail: 'customer-login-fail',
-    CustomerProfileLoaded: 'customer-profile-loaded'
+    CustomerProfileLoaded: 'customer-profile-loaded',
+    CustomerLogout: 'customer-logout'
 }

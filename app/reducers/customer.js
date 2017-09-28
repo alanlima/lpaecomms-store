@@ -21,6 +21,8 @@ const CustomerReducer = (state = defaultState, action) => {
             return Object.assign({}, state, { loggedProfile: action.customer })
         case ActionTypes.CustomerLogInSuccessfull:
             return Object.assign({}, state, { loggedCustomerId: action.customerId })
+        case ActionTypes.CustomerLogout: 
+            return Object.assign({}, state, { loggedProfile: null, loggedCustomerId: 0 })
         default:
             return state;
     }
