@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PageContent from 'components/PageContent'
 import { Field, SelectField } from 'components/BootstrapForms'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class InCheckout extends Component {
     constructor(props) {
@@ -79,6 +79,13 @@ class CheckoutPage extends Component {
     }
 
     render() {
+
+        if(!this.props.isSessionRehydrated) return null;
+
+        if(!this.props.isUserAuthenticated) {
+            return <Redirect to={`login?redirectTo=${this.props.location.pathname}`} />
+        }
+
         const invoiceId = this.props.match.params.invoiceId;
     
         return (

@@ -8,7 +8,7 @@ const defaultState = {
 const SessionReducer = (state = defaultState, action) => {
     switch(action.type) {
         case 'persist/REHYDRATE':
-            return Object.assign({}, state, { isSessionRehydrated: true });
+            return Object.assign({}, state, { isSessionRehydrated: true, isUserAuthenticated: action.payload.Session.isUserAuthenticated });
         case ActionTypes.CustomerLogInSuccessfull:
         case ActionTypes.CustomerProfileLoaded:
             return Object.assign({}, state, { isUserAuthenticated: true });

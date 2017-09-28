@@ -7,7 +7,9 @@ const mapStateToProps = (state, ownProps) => {
         customerProfile: state.Customer.loggedProfile,
         paymentOptions: [ 'PayPal', 'Visa', 'MasterCard', 'Direct Deposit' ],
         totalAmount: state.Cart.summary.totalPrice,
-        items: state.Cart.items
+        items: state.Cart.items,
+        isUserAuthenticated: state.Session.isUserAuthenticated,
+        isSessionRehydrated: state.Session.isSessionRehydrated
     }
 }
 
@@ -29,6 +31,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return Object.assign({}, ownProps, {
         customerProfile: stateProps.customerProfile,
         paymentOptions: stateProps.paymentOptions,
+        isUserAuthenticated: stateProps.isUserAuthenticated,
+        isSessionRehydrated: stateProps.isSessionRehydrated,
         doPayment: (paymentChoosen) => {
            dispatchProps.doPayment(
                stateProps.customerProfile,
