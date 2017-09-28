@@ -91,9 +91,9 @@ class CartPage extends Component
                             totalPrice={totalPrice} />
                     </div>
                     <div className="row pull-right">
-                        <Link to="/checkout" className="btn btn-primary">
+                        {items.length > 0 && <Link to="/checkout" className="btn btn-primary">
                             Checkout
-                        </Link>
+                        </Link>}
                     </div>
                 </div>
             </PageContent>
