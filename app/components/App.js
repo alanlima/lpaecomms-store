@@ -16,6 +16,7 @@ import LogInContainer from 'containers/LogInContainer'
 import CustomerProfileContainer from 'containers/CustomerProfileContainer'
 import { AuthRoute, ProtectedRoutes } from 'components/RouterHelpers'
 import ProtectedRouteContainer from 'containers/ProtectedRouteContainer'
+import CheckoutContainer from 'containers/CheckoutContainer'
 
 class App extends Component {
     render() {
@@ -44,6 +45,8 @@ class App extends Component {
                     <Route path="/customer/edit" component={CustomerContainer} />
                     <Route path="/login" component={LogInContainer} />
                     <Route path="/customer/profile" component={CustomerProfileContainer} /> 
+                    <Route exact path="/checkout" component={CheckoutContainer} />
+                    <Route exact path="/checkout/:invoiceId" component={CheckoutContainer} />
 
                     {/* <ProtectedRoutes
                         loginUrl="/login"

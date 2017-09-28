@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+const formStyles = {
+    fieldStyles: {
+        contentStyle: {
+            fontSize: "1.2em"
+        },
+        labelStyle: {
+            fontWeight: 'bold',
+        }
+    }
+}
+
 class InputBox extends Component {
 
     constructor(props){
@@ -110,8 +121,73 @@ class PasswordField extends Component {
     }
 }
 
+const Field = (props) => {
+    return (
+        <div className="row" style={formStyles.fieldStyles.contentStyle}>
+            <div className="col-md-2" style={formStyles.fieldStyles.labelStyle}>{props.label}:</div>
+            <div className="col-md-6">
+                {props.value}
+            </div>
+        </div>
+    )
+}
+
+Field.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
+}
+
+class SelectField extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(name, selectedValue) {
+        this.props.onChange(name, selectedValue);
+    }
+
+    render(){
+        const { label, name, options, showSelectValueOption } = this.props;
+
+        return (
+            <div className='form-group'>
+                {label && <label htmlFor={name}>{label}</label>}
+                <select id={name} name={name} 
+                        className='form-control'
+                        onChange={event => this.handleChange(name, event.target.value)}>
+
+                        {showSelectValueOption && <option>(Select Value)</option>}
+
+                        {options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                </select>
+            </div>
+        )
+    }
+}
+
+SelectField.propTypes = {
+    onChange: PropTypes.func,
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    showSelectValueOption: PropTypes.bool,
+    options: PropTypes.array.isRequired
+}
+
+SelectField.defaultProps = {
+    onChange: (name, value) => {},
+    showSelectValueOption: true
+}
+
 module.exports = {
     InputTextBox,
     PasswordBox,
-    PasswordField
+    PasswordField,
+    Field,
+    SelectField
 }

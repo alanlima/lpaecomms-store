@@ -5,7 +5,7 @@ import { doLogout } from 'actions/customer-actions'
 const mapStateToProps = (state, ownProps) => {
     return {
         userLogged: state.Customer.loggedProfile != null,
-        userName: state.Customer.loggedProfile ? state.Customer.loggedProfile.name : null
+        userName: state.Customer.loggedProfile ? state.Customer.loggedProfile.firstName : null
     }
 }
 

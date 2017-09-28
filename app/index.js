@@ -47,7 +47,7 @@ syncHistoryWithStore(history, store);
 // history.listen(loc => console.log('history', loc))
 
 persistStore(store, {
-    blacklist: [ 'Catalog', 'Cart', 'routing' ]
+    blacklist: [ 'Catalog', 'routing' ]
 });
 
 ReactDOM.render(

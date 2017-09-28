@@ -39,7 +39,7 @@ const NavBar = (props) => {
     const MenuItemsData = [
         { url: '/customer/profile', icon: 'fa fa-user', title: 'My Account' },
         { url: '/cart', icon: 'fa fa-shopping-cart', title: 'My Cart' },
-        { url: '#', icon: 'fa fa-user', title: 'Checkoput' }
+        { url: '/checkout', icon: 'fa fa-user', title: 'Checkout' }
     ]
     return (
         <nav className='header-area'>

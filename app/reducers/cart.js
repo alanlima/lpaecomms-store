@@ -20,7 +20,6 @@ const Cart = (state = defaultState, action) => {
                 items: [...state.items, action.item]
             })
         case ActionTypes.RemoveProductFromCart:
-            console.log('product to remove', state.items.filter(item => item.productId === action.productId))
             return Object.assign({}, state, {
                 items: state.items.filter(item => item.productId !== action.productId)
             })
@@ -37,6 +36,14 @@ const Cart = (state = defaultState, action) => {
                 summary: {
                     itemsCount: state.items.length,
                     totalPrice: sumPrice(state.items)
+                }
+            })
+        case ActionTypes.OrderCreatedSuccessfully:
+            return Object.assign({}, state, {
+                items: [],
+                summary: {
+                    itemsCount: 0,
+                    totalPrice: 0
                 }
             })
         default:

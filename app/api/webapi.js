@@ -32,5 +32,11 @@ module.exports = {
                     { id })
             .then(response => response.data)
             .catch(error => console.log('error on load customer profile', error))
+    },
+    createOrder: (order) => {
+        return Axios
+            .post(getFullPath('order/new.php'), order)
+            .then(response => response.data)
+            .catch(error => console.log('error on create order', error))
     }
 }
