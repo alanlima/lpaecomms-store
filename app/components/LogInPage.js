@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import PageContent from 'components/PageContent'
 import { InputTextBox, PasswordBox } from 'components/BootstrapForms'
+import { Link } from 'react-router-dom'
+
+const contentStyles = {
+    newUserButton: {
+        padding: "11px 20px",
+        marginRight: "7px"
+    }
+}
 
 class LogInPage extends Component {
 
@@ -42,8 +50,13 @@ class LogInPage extends Component {
                             name='password'
                             onChange={this.handleChange} />
 
-                        <input type="submit" className="btn btn-primary" value="Log in" />
-                            
+                        <div className="pull-right">
+                            <Link to='/customer/new' style={contentStyles.newUserButton} className="btn btn-default">
+                                New User ?
+                            </Link>
+
+                            <input type="submit" className="btn btn-primary" value="Log in" />
+                        </div>  
                     </form>
                 </div>
             </PageContent>
