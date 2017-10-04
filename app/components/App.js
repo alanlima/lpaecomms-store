@@ -17,6 +17,25 @@ import CustomerProfileContainer from 'containers/CustomerProfileContainer'
 import { AuthRoute, ProtectedRoutes } from 'components/RouterHelpers'
 import ProtectedRouteContainer from 'containers/ProtectedRouteContainer'
 import CheckoutContainer from 'containers/CheckoutContainer'
+import lpaLogo from 'images/logo.png'
+
+const ContentStyle = {
+    logoContentStyle: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    logoStyle: {
+        width: "80px",
+        height: "80px",
+    },
+    companyNameStyle: {
+        fontWeight: "bold",
+        fontSize: "2.4em",
+    }
+}
+
 
 class App extends Component {
     render() {
@@ -27,13 +46,12 @@ class App extends Component {
 
                     <div className="site-branding-area">
                         <div className="container">
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    LPA - eComms
-                                </div>
-                                <div className="col-sm-6">
-                                    <CartBtnContainer />
-                                </div>
+                            <div className="row" style={ContentStyle.logoContentStyle}>
+                                <img src={lpaLogo} alt="lpa logo" style={ContentStyle.logoStyle} />
+                                <span style={ContentStyle.companyNameStyle}>
+                                    LPA - E-Commerce
+                                </span>
+                                <CartBtnContainer className="pull-right" />
                             </div>
                         </div>
                     </div>
