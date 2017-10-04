@@ -617,7 +617,7 @@ padding: 35px 0 180px;}
     margin-top: 25px;
 }
 a {color: #5a88ca}
-a:hover, a:focus {color: #17a78b}
+/* a:hover, a:focus {color: #17a78b} */
 .footer-bottom-area {
   background: none repeat scroll 0 0 #000;
   color: #fff;

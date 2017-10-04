@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 
 const CartButton = (props) => {
     return (
-        <div className="shopping-item">
-            <Link to="/cart">
+        <Link to="/cart" className="shopping-item">
                 Cart -&nbsp;
                 <span className="cart-amunt">
                     $ {props.amount}
@@ -14,8 +13,7 @@ const CartButton = (props) => {
                 <span className="product-count">
                     {props.productCount}
                 </span>
-            </Link>
-        </div>
+        </Link>
     )
 }
 
