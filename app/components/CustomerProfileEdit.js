@@ -34,7 +34,8 @@ class CustomerProfileEdit extends Component {
             lastName: this.state.lastName,
             address: this.state.address,
             phone: this.state.phone,
-            login: this.state.login
+            login: this.state.login,
+            password: this.state.password,
         }
         this.props.save(customer);
     }
@@ -60,7 +61,7 @@ class CustomerProfileEdit extends Component {
 
                 <InputTextBox 
                     label="Address"
-                    name="Address"
+                    name="address"
                     placeholder="Your full address"
                     value={this.state.address}
                     onChange={this.handleChange} />

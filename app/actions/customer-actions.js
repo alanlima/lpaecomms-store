@@ -8,7 +8,9 @@ const registerCustomer = (newCustomer, nextAction = () => { }) => {
                 .registerCustomer(newCustomer)
                 .then((result) => {
                     dispatch({type: ActionTypes.CustomerSavedSuccessfully, result})
-                    nextAction()
+                    // nextAction()
+                    dispatch(loadCustomerProfile(result.customerId))
+                        .then(() => dispatch(navigationActions.goToHome()))
                 })
     }
 }
