@@ -49,7 +49,7 @@ class CatalogPage extends Component {
                     <CatalogFilterContainer />
                 </div>
                 <div className="row">
-                    {this.props.catalog.map(item => <Product
+                    {this.props.catalog.length > 0 && this.props.catalog.map(item => <Product
                             key={item.id}
                             imageUrl={item.image}
                             name={item.name}
@@ -57,6 +57,11 @@ class CatalogPage extends Component {
                             id={item.id}
                             addToCart={() => this.props.addToCart(item)}
                         />)}
+
+                    {
+                        this.props.catalog.length == 0 
+                            && <h3><center>No items to show</center></h3>
+                    }
                 
                 </div>
                 <div className="row">
