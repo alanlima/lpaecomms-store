@@ -22,9 +22,24 @@ class InCheckout extends Component {
     }
 
     render() {
-        const { customerProfile, paymentOptions, doPayment } = this.props;
+        const { customerProfile, paymentOptions, doPayment, thereAreItemsInCart } = this.props;
         
         if(!customerProfile) return null;
+
+        if(!thereAreItemsInCart) {
+            return (
+                <div>
+                    <center>
+                        <h3>The cart is empty.</h3>
+                        <Link to="/">
+                            <strong>
+                                Please, add at least one item to the cart.
+                            </strong>
+                        </Link>
+                    </center>
+                </div>
+            )
+        }
     
         return (
             <div>

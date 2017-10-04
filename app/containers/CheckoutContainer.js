@@ -33,6 +33,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         paymentOptions: stateProps.paymentOptions,
         isUserAuthenticated: stateProps.isUserAuthenticated,
         isSessionRehydrated: stateProps.isSessionRehydrated,
+        thereAreItemsInCart: stateProps.items.length > 0,
         doPayment: (paymentChoosen) => {
            dispatchProps.doPayment(
                stateProps.customerProfile,
