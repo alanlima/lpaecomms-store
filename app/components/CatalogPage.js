@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PageContent from 'components/PageContent'
+import CatalogFilterContainer from 'containers/CatalogFilterContainer'
 
 class Product extends Component {
     render() {
-        const { imageUrl, name, price, id } = this.props;
+        const { imageUrl, name, price, id, description } = this.props;
 
         return (
             <div className="col-md-3 col-sm-6" >
@@ -44,6 +45,9 @@ class CatalogPage extends Component {
     render() {
         return (
             <PageContent title="Shop">
+                <div className="row">
+                    <CatalogFilterContainer />
+                </div>
                 <div className="row">
                     {this.props.catalog.map(item => <Product
                             key={item.id}

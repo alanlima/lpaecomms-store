@@ -10,5 +10,6 @@ module.exports = {
     CustomerLogInFail: 'customer-login-fail',
     CustomerProfileLoaded: 'customer-profile-loaded',
     CustomerLogout: 'customer-logout',
-    OrderCreatedSuccessfully: 'order-created'
+    OrderCreatedSuccessfully: 'order-created',
+    SetTextFilter: 'set-text-filter'
 }

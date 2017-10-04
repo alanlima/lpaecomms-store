@@ -5,9 +5,21 @@ import {
     addToCartAndUpdateSummary as addToCart 
 } from 'actions/cart-actions'
 
+const applyFilter = (catalog, filter) => {
+    if(filter.textFilter) {
+        return catalog.filter(item => {
+            const filterLowerCase = filter.textFilter.toLowerCase()
+            return item.name.toLowerCase().indexOf(filterLowerCase) != -1;
+                // || item.description.toLowerCase().indexOf(filterLowerCase) != -1
+        })
+    }
+
+    return catalog;
+}
+
 const mapStateToProps = (state, ownProps) => {
     return {
-        catalog: state.Catalog
+        catalog: applyFilter(state.Catalog, state.CatalogFilter)
     }
 }
 

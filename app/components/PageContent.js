@@ -15,7 +15,7 @@ const PageContent = props => {
                     </div>
                 </div>
             </div>
-            <div style={{padding: "80px 0 130px"}}> 
+            <div style={{padding: "20px 0 130px"}}> 
                 <div className="container">
                     {props.children}
                 </div>
