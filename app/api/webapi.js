@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const webApiUrl = 'http://lpaecomms.dev/webapi'
+const webApiUrl = 'http://192.168.0.100/lpaecomms-web/webapi'
 
 function getFullPath(method){
     return webApiUrl + '/' + method;

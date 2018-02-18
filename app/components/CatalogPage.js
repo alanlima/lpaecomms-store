@@ -5,17 +5,18 @@ import CatalogFilterContainer from 'containers/CatalogFilterContainer'
 
 class Product extends Component {
     render() {
-        const { imageUrl, name, price, id, description } = this.props;
+        const { image, name, price, id, description } = this.props.item;
 
         return (
             <div className="col-md-3 col-sm-6" >
                 <div className="single-shop-product">
                     <div className="product-upper" style={{ height: "180px", width: "200px", display: "inline-block"}}>
-                        <img src={imageUrl} alt={'image for ' + name} />
+                        <img src={image} alt={'image for ' + name} />
                     </div>
                     <h2 style={{ height: "50px" }}>
                         <a href='#'>{name}</a>
                     </h2>
+                    <h5>{description}</h5>
                     <div className='product-carousel-price' >
                         <ins>$ {price}</ins>
                     </div>
@@ -29,10 +30,7 @@ class Product extends Component {
 }
 
 Product.propTypes = {
-    imageUrl: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    item: PropTypes.object.isRequired,
     addToCart: PropTypes.func.isRequired
 }
 
@@ -51,10 +49,7 @@ class CatalogPage extends Component {
                 <div className="row">
                     {this.props.catalog.length > 0 && this.props.catalog.map(item => <Product
                             key={item.id}
-                            imageUrl={item.image}
-                            name={item.name}
-                            price={item.price}
-                            id={item.id}
+                            item={item}
                             addToCart={() => this.props.addToCart(item)}
                         />)}
 
